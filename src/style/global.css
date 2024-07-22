@@ -1,0 +1,49 @@
+/* CSS Variable */
+:root {
+  --primary: #002D4B; /* AZUL - CASSI */
+  --secundary: #FCFC1B; /* AMARELO - CASSI */
+  --background: #FFF; /* BACKGROUND */
+  --light-grey: #D9D9D9; /* BORDER */
+  --grey: #969696; /* TEXTO FORMULÁRIO */
+  --dark-grey: #747876; /* BREADCRUMB */
+  --text: #2D2D2D; /* TEXTOS */
+}
+
+/* Estilos importantes para todas as páginas */
+
+body {
+  background:  var(--background);
+  color: var(--text);
+}
+
+body, input, textarea, button {
+  font: 400 1rem Arial, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 60px 156px 60px 156px;
+}

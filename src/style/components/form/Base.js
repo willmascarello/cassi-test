@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const BaseStyle = styled.div`
+export const BaseFormStyle = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  img {
+    border-radius: 5px;
+  }
 `
 
 export const Breadcrumb = styled.p`
@@ -17,3 +21,5 @@ export const Title = styled.h1`
 `
 
 export const Text = styled.p``
+
+export const FormStyle = styled.p``

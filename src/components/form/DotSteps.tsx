@@ -1,4 +1,4 @@
-export function Steps() {
+export function DotSteps() {
   return (
     <div>
       <h1>Dots</h1>

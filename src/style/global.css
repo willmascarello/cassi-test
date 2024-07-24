@@ -6,7 +6,8 @@
   --light-grey: #D9D9D9; /* BORDER */
   --grey: #969696; /* TEXTO FORMULÁRIO */
   --dark-grey: #747876; /* BREADCRUMB */
-  --text: #2D2D2D; /* TEXTOS */
+  --text: #2D2D2D; /* TEXTOS */ 
+  --text-white: #FFF; /* TEXTOS CLAROS*/ 
 }
 
 /* Estilos importantes para todas as páginas */

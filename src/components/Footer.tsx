@@ -1,7 +1,9 @@
+import { FooterStyle } from "../style/components/Footer.js";
+
 export function Footer() {
   return (
-    <div>
-      <h1>Footer</h1>
-    </div>
+    <FooterStyle>
+      <img src="img/web-logo-cassi-branco.png" alt="Logo Cassi Footer" />
+    </FooterStyle>
   );
 }

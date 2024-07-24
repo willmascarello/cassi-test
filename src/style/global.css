@@ -17,7 +17,7 @@ body {
 }
 
 body, input, textarea, button {
-  font: 400 1rem Arial, sans-serif;
+  font: 400 1rem Arial, sans-serif !important;
 }
 
 button {
@@ -35,15 +35,6 @@ h1 {
   font-size: 1.75rem;
 }
 
-h2 {
-  font-family: Arial, sans-serif;
-  font-weight: 500;
-  font-size: 1.5rem;
-}
-
 .container {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 60px 156px 60px 156px;
+  padding: 60px 156px;
 }

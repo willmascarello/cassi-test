@@ -1,4 +1,5 @@
 import {
+  FormGroup,
   FieldFormCheckbox,
   Checkboxes,
   FieldForm,
@@ -9,7 +10,7 @@ import {
 // Dados
 export function Step1() {
   return (
-    <div>
+    <FormGroup>
       <FieldFormCheckbox>
         <p>* Tipo</p>
         <Checkboxes>
@@ -92,6 +93,6 @@ export function Step1() {
         </button>
         <button className="next">Proximo</button>
       </Buttons>
-    </div>
+    </FormGroup>
   );
 }

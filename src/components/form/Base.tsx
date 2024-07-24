@@ -1,4 +1,9 @@
-import { Breadcrumb, Title, Text } from "../../style/components/form/Base.js";
+import {
+  BaseFormStyle,
+  Breadcrumb,
+  Title,
+  Text,
+} from "../../style/components/form/Base.js";
 
 export function Base() {
   const breadcrumb =
@@ -8,11 +13,11 @@ export function Base() {
     "Para se credenciar à CASSI o primeiro passo é registrar a sua proposta, que será avaliada de acordo com a necessidade de oferta dos serviços na localidade.";
 
   return (
-    <div>
+    <BaseFormStyle>
       <Breadcrumb>{breadcrumb}</Breadcrumb>
       <img src="img/base-form.png" alt="Imagem de Tecnologia" />
       <Title>{title}</Title>
       <Text>{text}</Text>
-    </div>
+    </BaseFormStyle>
   );
 }

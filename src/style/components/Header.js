@@ -4,14 +4,17 @@ export const HeaderStyle = styled.header`
   display: flex;
   width: 100%;
   height: 84px;
-  border-bottom: 1px solid var(--dark-grey);
+  border-bottom: 1px solid var(--light-grey);
   background: var(--background);
   z-index: 2;
+`
 
-  img {
-    width: 52px;
-    height: 105.86px;
-    object-fit: none;
+export const ImgHeader = styled.div`
+  margin: 16px 50px;
+
+  
+  img {      
+    height: 52px;
   }
 `
 

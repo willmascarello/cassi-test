@@ -5,13 +5,31 @@ export const FooterStyle = styled.footer`
   bottom: 0;
   display: flex;
   width: 100%;
-  height: 84px;
+  height: 118px;
   background-color: var(--primary);
+  /* padding: 33px 86px; */
+  justify-content: space-between;
+`
 
-  img {
-    width: 52px;
-    height: 105.86px;
-    object-fit: none;
+export const ImgFooter = styled.div`
+  display: flex;
+  height: 52px;
+  margin: 33px 86px;
+
+  img {      
+    height: 52px;
+  }
+`
+
+export const RedesSociais = styled.div`
+  display: flex;
+  margin: 33px 86px;
+  gap: 24px;
+  align-items: center;
+
+  a {      
+    height: 24px;
+    width: 24px;
   }
 `
 

@@ -13,6 +13,7 @@
 /* Estilos importantes para todas as páginas */
 
 body {
+  margin: 0;
   background:  var(--background);
   color: var(--text);
 }

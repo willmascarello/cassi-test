@@ -1,9 +1,11 @@
-import { HeaderStyle } from "../style/components/Header.js";
+import { HeaderStyle, ImgHeader } from "../style/components/Header.js";
 
 export function Header() {
   return (
     <HeaderStyle>
-      <img src="img/web-logo-cassi.png" alt="Logo Cassi Header" />
+      <ImgHeader>
+        <img src="img/web-logo-cassi.png" alt="Logo Cassi Header" />
+      </ImgHeader>
     </HeaderStyle>
   );
 }

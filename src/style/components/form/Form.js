@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { DotSteps } from "../../../components/form/DotSteps";
 
 export const FormStyle = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
   margin-left: 100px;
   padding: 24px 16px;
 
@@ -14,6 +14,11 @@ export const FormStyle = styled.div`
   form {
     height: 100%;
   }
+`
+
+export const FormGroup = styled.div`
+  position: relative;
+  height: calc(100% - 60px); // - height do DotSteps
 `
 
 export const FieldFormCheckbox = styled.div`
@@ -59,6 +64,8 @@ export const TwoFieldForm = styled.div`
 
 
 export const Buttons = styled.div`
+  position: absolute;
+  bottom: 0;
   display: flex;
   width: 100%;
   justify-content: space-between;

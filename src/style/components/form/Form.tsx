@@ -31,8 +31,13 @@ export const FieldFormCheckbox = styled.div`
     margin-bottom: 8px;
   }
 `;
-export const FieldForm = styled.div`
-  display: flex;
+
+interface IFieldForm {
+  hidden?: boolean;
+}
+
+export const FieldForm = styled.div<IFieldForm>`
+  display: ${(props) => (props.hidden ? "none" : "flex")};
   flex-direction: column;
 
   label {

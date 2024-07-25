@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <FormProvider isActive={true}>
+    <FormProvider formData>
       <Header />
       <FormPage />
       <Footer />

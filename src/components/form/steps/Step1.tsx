@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   FormGroup,
   FieldFormCheckbox,
@@ -6,9 +7,38 @@ import {
   TwoFieldForm,
   Buttons,
 } from "../../../style/components/form/Form";
+import { cnpjMask, cpfMask } from "../Mask";
 
 // Dados
 export function Step1() {
+  const [formData, setFormData] = useState<any>({}); // usado any como tipo apenas pelo objeto ser dinamico e não saber quais atributos receberá
+
+  const [checkboxTipo, setCheckboxTipo] = useState("checkboxCpf");
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    let { name, value } = event.target;
+
+    if (name === "cpf") {
+      value = cpfMask(value);
+    }
+
+    if (name === "cnpj") {
+      value = cnpjMask(value);
+    }
+
+    setFormData({ ...formData, [name]: value });
+  }
+
+  useEffect(() => {
+    checkboxTipo === "checkboxCpf"
+      ? delete formData.checkboxCnpj
+      : delete formData.checkboxCpf;
+  }, [checkboxTipo]);
+
+  useEffect(() => {
+    console.log("formData: ", formData);
+  }, [formData]);
+
   return (
     <FormGroup>
       <FieldFormCheckbox>
@@ -16,12 +46,30 @@ export function Step1() {
         <Checkboxes>
           <label>
             Pessoa física
-            <input name="checkbox-tipo" value="cpf" type="checkbox" />
+            <input
+              name="checkboxCpf"
+              type="checkbox"
+              value="checkboxCpf"
+              checked={checkboxTipo === "checkboxCpf"}
+              onChange={(e) => {
+                handleInputChange(e);
+                setCheckboxTipo(e.target.value);
+              }}
+            />
             <span></span>
           </label>
           <label>
             Pessoa Jurídica
-            <input name="checkbox-tipo" value="cnpj" type="checkbox" />
+            <input
+              name="checkboxCnpj"
+              type="checkbox"
+              value="checkboxCnpj"
+              checked={checkboxTipo === "checkboxCnpj"}
+              onChange={(e) => {
+                handleInputChange(e);
+                setCheckboxTipo(e.target.value);
+              }}
+            />
             <span></span>
           </label>
         </Checkboxes>
@@ -32,26 +80,41 @@ export function Step1() {
           <label htmlFor="nome">* Nome</label>
           <input
             id="nome"
+            name="nome"
             type="text"
             placeholder="Informe o nome..."
             required
+            value={formData.nome}
+            onChange={(e) => handleInputChange(e)}
           />
         </FieldForm>
 
-        <FieldForm>
+        <FieldForm hidden={checkboxTipo === "checkboxCnpj"}>
           <label htmlFor="cpf">* CPF</label>
-          <input id="cpf" type="number" placeholder="000.000.000-00" required />
+          <input
+            id="cpf"
+            name="cpf"
+            type="text"
+            placeholder="000.000.000-00"
+            maxLength={14}
+            value={formData.cpf}
+            onChange={(e) => handleInputChange(e)}
+            required
+          />
         </FieldForm>
-        {/* <FieldForm>
-        
+        <FieldForm hidden={checkboxTipo === "checkboxCpf"}>
           <label htmlFor="cnpj">* CNPJ</label>
           <input
             id="cnpj"
-            type="number"
+            name="cnpj"
+            type="text"
             placeholder="00.000.000/0000-00"
+            maxLength={18}
+            value={formData.cnpj}
+            onChange={(e) => handleInputChange(e)}
             required
           />
-        </FieldForm> */}
+        </FieldForm>
       </TwoFieldForm>
 
       <FieldForm>

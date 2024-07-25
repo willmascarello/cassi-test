@@ -10,30 +10,21 @@ import {
 } from "../../../style/components/form/Form";
 import { cnpjMask, cpfMask } from "../Mask";
 
+export type Step1Props = {
+  toStep: (stepNumber: number) => void;
+  handleInputChange: (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => void;
+};
+
 // Dados
-export function Step1() {
+export const Step1: React.FC<Step1Props> = (props: Step1Props) => {
   const { formData, setFormData } = useContext(FormContext);
 
   const [checkboxTipo, setCheckboxTipo] = useState("checkboxCpf");
   const [step1NextButton, setStep1NextButton] = useState(true);
-
-  function handleInputChange(
-    event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLSelectElement>
-  ) {
-    let { name, value } = event.target;
-
-    if (name === "cpf") {
-      value = cpfMask(value);
-    }
-
-    if (name === "cnpj") {
-      value = cnpjMask(value);
-    }
-
-    setFormData({ ...formData, [name]: value });
-  }
 
   useEffect(() => {
     checkboxTipo === "checkboxCpf"
@@ -59,12 +50,6 @@ export function Step1() {
     console.log("step1NextButton: ", step1NextButton);
   }, [formData]);
 
-  // TODO: revisar se ao voltar para o formulário ele mantem o CNPJ selecionado
-  // inicialização
-  useEffect(() => {
-    setFormData({ ...formData, step: "1", checkboxCpf: "checkboxCpf" });
-  }, []);
-
   return (
     <FormGroup>
       <FieldFormCheckbox>
@@ -78,7 +63,7 @@ export function Step1() {
               value="checkboxCpf"
               checked={checkboxTipo === "checkboxCpf"}
               onChange={(e) => {
-                handleInputChange(e);
+                props.handleInputChange(e);
                 setCheckboxTipo(e.target.value);
               }}
             />
@@ -92,7 +77,7 @@ export function Step1() {
               value="checkboxCnpj"
               checked={checkboxTipo === "checkboxCnpj"}
               onChange={(e) => {
-                handleInputChange(e);
+                props.handleInputChange(e);
                 setCheckboxTipo(e.target.value);
               }}
             />
@@ -111,7 +96,7 @@ export function Step1() {
             placeholder="Informe o nome..."
             required
             value={formData.nome || ""}
-            onChange={(e) => handleInputChange(e)}
+            onChange={(e) => props.handleInputChange(e)}
           />
         </FieldForm>
 
@@ -124,7 +109,7 @@ export function Step1() {
             placeholder="000.000.000-00"
             maxLength={14}
             value={formData.cpf || ""}
-            onChange={(e) => handleInputChange(e)}
+            onChange={(e) => props.handleInputChange(e)}
             required
           />
         </FieldForm>
@@ -137,7 +122,7 @@ export function Step1() {
             placeholder="00.000.000/0000-00"
             maxLength={18}
             value={formData.cnpj || ""}
-            onChange={(e) => handleInputChange(e)}
+            onChange={(e) => props.handleInputChange(e)}
             required
           />
         </FieldForm>
@@ -149,7 +134,7 @@ export function Step1() {
           name="prestador"
           id="prestador"
           defaultValue=""
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => props.handleInputChange(e)}
           required
         >
           <option value="" disabled>
@@ -173,7 +158,7 @@ export function Step1() {
           name="especialidades"
           id="especialidades"
           defaultValue=""
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => props.handleInputChange(e)}
           required
         >
           <option value="" disabled>
@@ -192,10 +177,15 @@ export function Step1() {
         <button className="prev not-allowed" type="button">
           Anterior
         </button>
-        <button className="next" type="button" disabled={!step1NextButton}>
+        <button
+          className="next"
+          type="button"
+          disabled={!step1NextButton}
+          onClick={() => props.toStep(2)}
+        >
           Proximo
         </button>
       </Buttons>
     </FormGroup>
   );
-}
+};

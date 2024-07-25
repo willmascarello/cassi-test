@@ -21,6 +21,7 @@ export const ImgFooter = styled.div`
   }
 `
 
+// TODO: hover
 export const RedesSociais = styled.div`
   display: flex;
   margin: 33px 86px;

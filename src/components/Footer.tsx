@@ -2,7 +2,7 @@ import {
   FooterStyle,
   ImgFooter,
   RedesSociais,
-} from "../style/components/Footer.js";
+} from "../style/components/Footer";
 
 export function Footer() {
   return (

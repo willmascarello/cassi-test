@@ -3,7 +3,7 @@ import {
   Breadcrumb,
   Title,
   Text,
-} from "../../style/components/form/Base.js";
+} from "../../style/components/form/Base";
 
 export function Base() {
   const breadcrumb =

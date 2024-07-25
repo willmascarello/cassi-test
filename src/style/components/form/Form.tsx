@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { DotSteps } from "../../../components/form/DotSteps";
 
 export const FormStyle = styled.div`
   display: flex;
@@ -9,42 +8,43 @@ export const FormStyle = styled.div`
 
   border-bottom: 9px solid var(--primary);
   border-radius: 9px;
-  box-shadow: 0px 2px 3px 0px #0000001A;
+  box-shadow: 0px 2px 3px 0px #0000001a;
 
   form {
     height: 100%;
   }
-`
+`;
 
 export const FormGroup = styled.div`
   position: relative;
   height: calc(100% - 60px); // - height do DotSteps
-`
+`;
 
 export const FieldFormCheckbox = styled.div`
   display: flex;
   flex-direction: column;
-  
-  p { 
+
+  p {
     font-size: 1rem;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 8px; 
+    margin-bottom: 8px;
   }
-`
+`;
 export const FieldForm = styled.div`
   display: flex;
   flex-direction: column;
 
-  label { 
+  label {
     font-size: 1rem;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 8px; 
+    margin-bottom: 8px;
   }
 
-  input, select {
-    padding: 8px 16px ;
+  input,
+  select {
+    padding: 8px 16px;
     border: 1px solid var(--light-grey);
     border-radius: 4px;
     margin-bottom: 24px;
@@ -54,14 +54,13 @@ export const FieldForm = styled.div`
     font-size: 1rem;
     font-weight: 400;
   }
-`
+`;
 
 export const TwoFieldForm = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-`
-
+`;
 
 export const Buttons = styled.div`
   position: absolute;
@@ -79,7 +78,7 @@ export const Buttons = styled.div`
     background-color: var(--primary);
     color: var(--text-white);
   }
-`
+`;
 
 export const Checkboxes = styled.div`
   display: flex;
@@ -92,8 +91,8 @@ export const Checkboxes = styled.div`
     font-size: 16px;
     font-weight: 400;
     color: var(--text);
-    margin-bottom: 8px; 
-    
+    margin-bottom: 8px;
+
     padding-left: 24px;
     margin-bottom: 24px;
     cursor: pointer;
@@ -101,7 +100,6 @@ export const Checkboxes = styled.div`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    
   }
 
   label input {
@@ -119,7 +117,7 @@ export const Checkboxes = styled.div`
     height: 16px;
     width: 16px;
     background-color: var(--background);
-    
+
     border-radius: 50%;
     border: 1px solid var(--primary);
   }
@@ -130,7 +128,7 @@ export const Checkboxes = styled.div`
 
   label input:checked ~ span {
     background-color: var(--primary);
-    
+
     border: 1px solid var(--background);
     outline: 1px solid var(--primary);
   }
@@ -156,4 +154,4 @@ export const Checkboxes = styled.div`
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-`
+`;

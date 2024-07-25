@@ -1,4 +1,4 @@
-import { HeaderStyle, ImgHeader } from "../style/components/Header.js";
+import { HeaderStyle, ImgHeader } from "../style/components/Header";
 
 export function Header() {
   return (

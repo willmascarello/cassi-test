@@ -83,6 +83,20 @@ export const Buttons = styled.div`
     background-color: var(--primary);
     color: var(--text-white);
   }
+
+  button:disabled {
+    background-color: var(--grey);
+  }
+
+  .prev {
+    border: 1px solid var(--primary);
+    background-color: var(--background);
+    color: var(--primary);
+  }
+
+  .not-allowed {
+    cursor: not-allowed;
+  }
 `;
 
 export const Checkboxes = styled.div`

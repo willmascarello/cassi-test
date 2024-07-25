@@ -6,17 +6,16 @@ import "./style/global.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { FormPage } from "./pages/FormPage";
-import { FormProvider } from "./context/FormContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <FormProvider formData>
+    <>
       <Header />
       <FormPage />
       <Footer />
-    </FormProvider>
+    </>
   </React.StrictMode>
 );

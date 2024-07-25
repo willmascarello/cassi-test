@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FormContext } from "../../../pages/FormPage";
 import {
   FormGroup,
   FieldFormCheckbox,
@@ -11,11 +12,16 @@ import { cnpjMask, cpfMask } from "../Mask";
 
 // Dados
 export function Step1() {
-  const [formData, setFormData] = useState<any>({}); // usado any como tipo apenas pelo objeto ser dinamico e não saber quais atributos receberá
+  const { formData, setFormData } = useContext(FormContext);
 
   const [checkboxTipo, setCheckboxTipo] = useState("checkboxCpf");
+  const [step1NextButton, setStep1NextButton] = useState(true);
 
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleInputChange(
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) {
     let { name, value } = event.target;
 
     if (name === "cpf") {
@@ -31,13 +37,33 @@ export function Step1() {
 
   useEffect(() => {
     checkboxTipo === "checkboxCpf"
-      ? delete formData.checkboxCnpj
-      : delete formData.checkboxCpf;
+      ? setFormData({ ...formData, checkboxCnpj: "" })
+      : setFormData({ ...formData, checkboxCpf: "" });
   }, [checkboxTipo]);
 
   useEffect(() => {
-    console.log("formData: ", formData);
+    console.warn(formData); // formData
+
+    const validateCpf =
+      checkboxTipo === "checkboxCpf" && formData.cpf?.length > 13;
+    const validateCnpj =
+      checkboxTipo === "checkboxCnpj" && formData.cnpj?.length > 17;
+
+    setStep1NextButton(
+      !!formData.nome &&
+        (validateCpf || validateCnpj) &&
+        !!formData.prestador &&
+        !!formData.especialidades
+    );
+
+    console.log("step1NextButton: ", step1NextButton);
   }, [formData]);
+
+  // TODO: revisar se ao voltar para o formulário ele mantem o CNPJ selecionado
+  // inicialização
+  useEffect(() => {
+    setFormData({ ...formData, step: "1", checkboxCpf: "checkboxCpf" });
+  }, []);
 
   return (
     <FormGroup>
@@ -84,7 +110,7 @@ export function Step1() {
             type="text"
             placeholder="Informe o nome..."
             required
-            value={formData.nome}
+            value={formData.nome || ""}
             onChange={(e) => handleInputChange(e)}
           />
         </FieldForm>
@@ -97,7 +123,7 @@ export function Step1() {
             type="text"
             placeholder="000.000.000-00"
             maxLength={14}
-            value={formData.cpf}
+            value={formData.cpf || ""}
             onChange={(e) => handleInputChange(e)}
             required
           />
@@ -110,7 +136,7 @@ export function Step1() {
             type="text"
             placeholder="00.000.000/0000-00"
             maxLength={18}
-            value={formData.cnpj}
+            value={formData.cnpj || ""}
             onChange={(e) => handleInputChange(e)}
             required
           />
@@ -119,8 +145,14 @@ export function Step1() {
 
       <FieldForm>
         <label htmlFor="prestador">* Tipo de Prestador</label>
-        <select name="prestador" id="prestador" required>
-          <option value="" disabled selected>
+        <select
+          name="prestador"
+          id="prestador"
+          defaultValue=""
+          onChange={(e) => handleInputChange(e)}
+          required
+        >
+          <option value="" disabled>
             Selecione o tipo...
           </option>
           <option value="1">Médico(a)</option>
@@ -137,8 +169,14 @@ export function Step1() {
       {/* TODO: Buscar com Axios em um mockup */}
       <FieldForm>
         <label htmlFor="especialidades">* Especialidades</label>
-        <select name="especialidades" id="especialidades" required>
-          <option value="" disabled selected>
+        <select
+          name="especialidades"
+          id="especialidades"
+          defaultValue=""
+          onChange={(e) => handleInputChange(e)}
+          required
+        >
+          <option value="" disabled>
             Selecionar especialidade...
           </option>
           <option value="1">Cirurgia Cardiovascular</option>
@@ -151,10 +189,12 @@ export function Step1() {
       </FieldForm>
 
       <Buttons>
-        <button className="prev" disabled>
+        <button className="prev not-allowed" type="button">
           Anterior
         </button>
-        <button className="next">Proximo</button>
+        <button className="next" type="button" disabled={!step1NextButton}>
+          Proximo
+        </button>
       </Buttons>
     </FormGroup>
   );

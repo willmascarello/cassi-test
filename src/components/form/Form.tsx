@@ -7,7 +7,7 @@ import { Step2 } from "./steps/Step2";
 import { Step3 } from "./steps/Step3";
 import { Step4 } from "./steps/Step4";
 import { Step5 } from "./steps/Step5";
-import { cnpjMask, cpfMask } from "./Mask";
+import { cepMask, cnpjMask, cpfMask } from "./Mask";
 
 // import { currentStep } from "./steps/"+currentStep;
 
@@ -27,6 +27,10 @@ export function Form() {
 
     if (name === "cnpj") {
       value = cnpjMask(value);
+    }
+
+    if (name === "cep") {
+      value = cepMask(value);
     }
 
     setFormData({ ...formData, [name]: value });

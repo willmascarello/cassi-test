@@ -16,6 +16,13 @@ const formDataFields = {
   especialidades: "",
 
   // Step 2 - Endereço
+  cep: "",
+  endereco: "",
+  uf: "",
+  cidade: "",
+  bairro: "",
+  numero: "",
+  complemento: "",
   // Step 3 - Contato
   // Step 4 - Confirmação
   // Step 5 - Anexos

@@ -9,17 +9,17 @@ export const FooterStyle = styled.footer`
   background-color: var(--primary);
   /* padding: 33px 86px; */
   justify-content: space-between;
-`
+`;
 
 export const ImgFooter = styled.div`
   display: flex;
   height: 52px;
   margin: 33px 86px;
 
-  img {      
+  img {
     height: 52px;
   }
-`
+`;
 
 // TODO: hover
 export const RedesSociais = styled.div`
@@ -28,9 +28,14 @@ export const RedesSociais = styled.div`
   gap: 24px;
   align-items: center;
 
-  a {      
+  a {
     height: 24px;
     width: 24px;
-  }
-`
+    transition: 300ms ease;
 
+    &:hover {
+      filter: drop-shadow(2px 4px 6px black);
+      scale: 1.1;
+    }
+  }
+`;

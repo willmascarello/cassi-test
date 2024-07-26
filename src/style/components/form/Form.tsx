@@ -17,7 +17,7 @@ export const FormStyle = styled.div`
 
 export const FormGroup = styled.div`
   position: relative;
-  height: calc(100% - 60px); // - height do DotSteps
+  height: calc(100% - 84px); // - height e margin-bottom do DotSteps
 `;
 
 export const FieldFormCheckbox = styled.div`
@@ -28,7 +28,7 @@ export const FieldFormCheckbox = styled.div`
     font-size: 1rem;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 8px;
+    margin: 0 0 8px 0;
   }
 `;
 
@@ -58,12 +58,25 @@ export const FieldForm = styled.div<IFieldForm>`
   select {
     font-size: 1rem;
     font-weight: 400;
+
+    &:invalid {
+      color: var(--grey);
+    }
+
+    &:valid {
+      color: var(--primary);
+    }
   }
 `;
 
-export const TwoFieldForm = styled.div`
+interface ITwoFieldForm {
+  customGrid?: string;
+}
+
+export const TwoFieldForm = styled.div<ITwoFieldForm>`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: ${(props) =>
+    props.customGrid ? props.customGrid : "repeat(2, 1fr)"};
   gap: 16px;
 `;
 
@@ -142,7 +155,7 @@ export const Checkboxes = styled.div`
   }
 
   label:hover input ~ span {
-    background-color: var(--light-grey);
+    box-shadow: 0px 2px 3px 0px #00000084;
   }
 
   label input:checked ~ span {

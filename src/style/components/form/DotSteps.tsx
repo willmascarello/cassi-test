@@ -4,6 +4,7 @@ export const DotStepsStyle = styled.div`
   position: relative;
   display: flex;
   height: 60px;
+  margin-bottom: 24px;
   justify-content: space-between;
 
   &::after {
@@ -32,6 +33,7 @@ export const Dot = styled.div<IDot>`
   div {
     align-content: center;
     border-radius: 50%;
+    transition: 300ms ease;
 
     /* alterações feitas se o Dot está ativo ou não */
     height: ${(props) => (props.active ? "32px" : "24px")};

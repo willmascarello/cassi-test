@@ -33,8 +33,6 @@ export const Step1: React.FC<Step1Props> = (props: Step1Props) => {
   }, [checkboxTipo]);
 
   useEffect(() => {
-    console.warn(formData); // formData
-
     const validateCpf =
       checkboxTipo === "checkboxCpf" && formData.cpf?.length > 13;
     const validateCnpj =
@@ -46,8 +44,6 @@ export const Step1: React.FC<Step1Props> = (props: Step1Props) => {
         !!formData.prestador &&
         !!formData.especialidades
     );
-
-    console.log("step1NextButton: ", step1NextButton);
   }, [formData]);
 
   return (
@@ -86,7 +82,8 @@ export const Step1: React.FC<Step1Props> = (props: Step1Props) => {
         </Checkboxes>
       </FieldFormCheckbox>
 
-      <TwoFieldForm className="2-inputs">
+      <TwoFieldForm>
+        {/* TODO: tanformar o <FieldForm> em um componente reutilizavel */}
         <FieldForm>
           <label htmlFor="nome">* Nome</label>
           <input
@@ -94,9 +91,9 @@ export const Step1: React.FC<Step1Props> = (props: Step1Props) => {
             name="nome"
             type="text"
             placeholder="Informe o nome..."
-            required
             value={formData.nome || ""}
             onChange={(e) => props.handleInputChange(e)}
+            required
           />
         </FieldForm>
 
@@ -133,7 +130,7 @@ export const Step1: React.FC<Step1Props> = (props: Step1Props) => {
         <select
           name="prestador"
           id="prestador"
-          defaultValue=""
+          defaultValue={formData.prestador || ""}
           onChange={(e) => props.handleInputChange(e)}
           required
         >
@@ -157,7 +154,7 @@ export const Step1: React.FC<Step1Props> = (props: Step1Props) => {
         <select
           name="especialidades"
           id="especialidades"
-          defaultValue=""
+          defaultValue={formData.especialidades || ""}
           onChange={(e) => props.handleInputChange(e)}
           required
         >

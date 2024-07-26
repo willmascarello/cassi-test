@@ -27,8 +27,9 @@ export const Step3: React.FC<Step3Props> = (props: Step3Props) => {
 
   useEffect(() => {
     setStep3NextButton(
-      !!formData.contato &&
+      (!!formData.contato &&
         (formData.celular?.length > 13 || formData.telefone?.length > 13) &&
+        !!formData.email) ??
         !!formData.email.match(validEmail) // TODO: validar o e-mail
     );
   }, [formData]);

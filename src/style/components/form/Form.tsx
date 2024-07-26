@@ -96,8 +96,6 @@ export const Buttons = styled.div`
     background-color: var(--primary);
     color: var(--text-white);
 
-    transition: 200ms ease;
-
     &:hover {
       background-color: var(--secundary);
       color: var(--primary);
@@ -105,6 +103,7 @@ export const Buttons = styled.div`
   }
 
   button:disabled {
+    color: var(--text-white);
     background-color: var(--grey);
   }
 

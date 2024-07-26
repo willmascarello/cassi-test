@@ -65,7 +65,9 @@ export function Form() {
         {formData.step === "3" && (
           <Step3 toStep={toStep} handleInputChange={handleInputChange} />
         )}
-        {formData.step === "4" && <Step4 />}
+        {formData.step === "4" && (
+          <Step4 toStep={toStep} handleInputChange={handleInputChange} />
+        )}
         {formData.step === "5" && <Step5 />}
       </form>
     </FormStyle>

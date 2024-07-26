@@ -125,6 +125,25 @@ export const Buttons = styled.div`
   }
 `;
 
+export const FieldRecaptcha = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 36px);
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+`;
+
+interface IFieldForm {
+  hidden?: boolean;
+}
+
 export const Checkboxes = styled.div`
   display: flex;
   gap: 16px;

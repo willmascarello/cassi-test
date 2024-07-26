@@ -29,6 +29,7 @@ const formDataFields = {
   telefone: "",
   email: "",
   // Step 4 - Confirmação
+  recaptcha: "",
   // Step 5 - Anexos
 };
 

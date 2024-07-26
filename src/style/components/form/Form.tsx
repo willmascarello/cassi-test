@@ -34,9 +34,6 @@ export const FieldFormCheckbox = styled.div`
 
 interface IFieldForm {
   hidden?: boolean;
-}
-
-interface IFieldForm {
   custom?: string;
 }
 
@@ -90,6 +87,62 @@ export const TwoFieldForm = styled.div<ITwoFieldForm>`
     position: absolute;
     bottom: 0;
     color: var(--grey);
+  }
+`;
+
+export const TitleField = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  p {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: var(--primary);
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+`;
+
+export const FieldFormFile = styled.div`
+  position: relative;
+  width: 100%;
+  height: 164px;
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  align-content: center;
+  text-align: center;
+
+  p {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    gap: 16.5px;
+
+    li {
+      width: 80px;
+      height: 80px;
+      border: 4px solid var(--dark-grey);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+  }
+
+  small {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
   }
 `;
 

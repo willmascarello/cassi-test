@@ -44,12 +44,28 @@ export function Form() {
     setFormData({ ...formData, [name]: value });
   }
 
+  function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+    let { name, value } = event.target;
+
+    console.log("event:", event);
+    console.log("file:", event.target.files);
+    // console.log("event:", event.target.file);
+    // console.log("file:", !event.target.files[0] ?? event.target.files[0]);
+
+    setFormData({ ...formData, [name]: value });
+  }
+
+  // FIXME: voltar para -> step: "1"
   useEffect(() => {
-    setFormData({ ...formData, step: "1", checkboxCpf: "checkboxCpf" });
+    setFormData({ ...formData, step: "5", checkboxCpf: "checkboxCpf" });
   }, []);
 
   function toStep(stepNumber: number) {
     setFormData({ ...formData, step: stepNumber.toString() });
+  }
+
+  function handleSendForm() {
+    return null;
   }
 
   return (
@@ -68,7 +84,14 @@ export function Form() {
         {formData.step === "4" && (
           <Step4 toStep={toStep} handleInputChange={handleInputChange} />
         )}
-        {formData.step === "5" && <Step5 />}
+        {formData.step === "5" && (
+          <Step5
+            toStep={toStep}
+            handleInputChange={handleInputChange}
+            handleSendForm={handleSendForm}
+            handleFileChange={handleFileChange}
+          />
+        )}
       </form>
     </FormStyle>
   );

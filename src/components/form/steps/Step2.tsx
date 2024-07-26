@@ -18,7 +18,7 @@ export type Step2Props = {
 
 // Endereço
 export const Step2: React.FC<Step2Props> = (props: Step2Props) => {
-  const { formData, setFormData } = useContext(FormContext);
+  const { formData } = useContext(FormContext);
 
   const [step2NextButton, setStep2NextButton] = useState(true);
 

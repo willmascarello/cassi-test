@@ -31,6 +31,8 @@ const formDataFields = {
   // Step 4 - Confirmação
   recaptcha: "",
   // Step 5 - Anexos
+  arquivo: [],
+  observacoes: "",
 };
 
 type FormContextType = {

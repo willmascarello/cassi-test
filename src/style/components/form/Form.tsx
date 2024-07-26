@@ -36,9 +36,15 @@ interface IFieldForm {
   hidden?: boolean;
 }
 
+interface IFieldForm {
+  custom?: string;
+}
+
 export const FieldForm = styled.div<IFieldForm>`
   display: ${(props) => (props.hidden ? "none" : "flex")};
   flex-direction: column;
+
+  ${(props) => props.custom ?? ""};
 
   label {
     font-size: 1rem;
@@ -70,14 +76,21 @@ export const FieldForm = styled.div<IFieldForm>`
 `;
 
 interface ITwoFieldForm {
-  customGrid?: string;
+  customGridColumn?: string;
 }
 
 export const TwoFieldForm = styled.div<ITwoFieldForm>`
+  position: relative;
   display: grid;
   grid-template-columns: ${(props) =>
-    props.customGrid ? props.customGrid : "repeat(2, 1fr)"};
+    props.customGridColumn ?? "repeat(2, 1fr)"};
   gap: 16px;
+
+  small {
+    position: absolute;
+    bottom: 0;
+    color: var(--grey);
+  }
 `;
 
 export const Buttons = styled.div`

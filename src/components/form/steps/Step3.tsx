@@ -75,9 +75,11 @@ export const Step3: React.FC<Step3Props> = (props: Step3Props) => {
             required
           />
         </FieldForm>
+
+        <small>(Obrigatório informar pelo menos um telefone)</small>
       </TwoFieldForm>
 
-      <FieldForm>
+      <FieldForm custom="margin-top: 24px;">
         <label htmlFor="email">* E-mail</label>
         <input
           id="email"

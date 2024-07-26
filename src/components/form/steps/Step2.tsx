@@ -35,7 +35,7 @@ export const Step2: React.FC<Step2Props> = (props: Step2Props) => {
 
   return (
     <FormGroup>
-      <TwoFieldForm customGrid={"114px auto"}>
+      <TwoFieldForm customGridColumn={"114px auto"}>
         <FieldForm>
           <label htmlFor="cep">* CEP</label>
           <input
@@ -63,7 +63,7 @@ export const Step2: React.FC<Step2Props> = (props: Step2Props) => {
         </FieldForm>
       </TwoFieldForm>
 
-      <TwoFieldForm customGrid={"auto 1fr"}>
+      <TwoFieldForm customGridColumn={"auto 1fr"}>
         <FieldForm>
           <label htmlFor="uf">* Estado</label>
           <select

@@ -38,6 +38,7 @@ interface IFieldForm {
 }
 
 export const FieldForm = styled.div<IFieldForm>`
+  position: relative;
   display: ${(props) => (props.hidden ? "none" : "flex")};
   flex-direction: column;
 
@@ -69,6 +70,20 @@ export const FieldForm = styled.div<IFieldForm>`
     &:valid {
       color: var(--primary);
     }
+  }
+
+  textarea {
+    resize: none;
+    border: 1px solid var(--light-grey);
+    border-radius: 4px;
+    padding: 8px 16px;
+  }
+
+  small {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    color: var(--grey);
   }
 `;
 
@@ -119,6 +134,7 @@ export const FieldFormFile = styled.div`
   border-radius: 4px;
   align-content: center;
   text-align: center;
+  margin-bottom: 24px;
 
   p {
     text-decoration: underline;
@@ -136,6 +152,12 @@ export const FieldFormFile = styled.div`
       border: 4px solid var(--dark-grey);
       border-radius: 12px;
       pointer-events: none;
+
+      img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
@@ -221,7 +243,6 @@ export const Checkboxes = styled.div`
     font-size: 16px;
     font-weight: 400;
     color: var(--text);
-    margin-bottom: 8px;
 
     padding-left: 24px;
     margin-bottom: 24px;

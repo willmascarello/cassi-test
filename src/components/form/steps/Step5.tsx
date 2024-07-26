@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { FormContext } from "../../../pages/FormPage";
 import {
@@ -16,6 +16,7 @@ export type Step5Props = {
     event:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
   ) => void;
   handleFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -30,23 +31,19 @@ export const Step5: React.FC<Step5Props> = (props: Step5Props) => {
     // @ts-ignore: Unreachable code error
     <li key={file.path}>
       {/* @ts-ignore: Unreachable code error */}
-      {file.path} - {file.size} bytes
+      {/* {file.path} - {file.size} bytes */}
+      <img src="img/file-example.png" alt="exemplo de arquivo" />
+
+      {/* TODO: remover o arquivo */}
     </li>
   ));
 
   const [step5NextButton, setStep5NextButton] = useState(true);
 
+  // TODO: rever validação
   useEffect(() => {
     console.log("arquivo: ", formData);
-    setStep5NextButton(
-      false
-      // formData.cep?.length > 9 &&
-      //   !!formData.endereco &&
-      //   !!formData.uf &&
-      //   !!formData.cidade &&
-      //   !!formData.bairro &&
-      //   !!formData.numero
-    );
+    setStep5NextButton(!!files.length);
   }, [formData]);
 
   return (
@@ -84,6 +81,21 @@ export const Step5: React.FC<Step5Props> = (props: Step5Props) => {
 
         <ul>{files}</ul>
       </FieldFormFile>
+
+      <FieldForm>
+        <label htmlFor="observacoes">Observações (Opcional)</label>
+        <textarea
+          id="observacoes"
+          name="observacoes"
+          placeholder="Sua mensagem..."
+          maxLength={800}
+          rows={6}
+          value={formData.observacoes || ""}
+          onChange={(e) => props.handleInputChange(e)}
+        />
+
+        <small>{formData.observacoes?.length ?? 0}/800 caracteres</small>
+      </FieldForm>
 
       <Buttons>
         <button className="prev" type="button" onClick={() => props.toStep(4)}>

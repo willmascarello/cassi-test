@@ -18,6 +18,7 @@ export function Form() {
     event:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
   ) {
     let { name, value } = event.target;
 

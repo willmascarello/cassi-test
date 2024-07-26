@@ -8,7 +8,6 @@ import {
   TwoFieldForm,
   Buttons,
 } from "../../../style/components/form/Form";
-import { cnpjMask, cpfMask } from "../Mask";
 
 export type Step1Props = {
   toStep: (stepNumber: number) => void;

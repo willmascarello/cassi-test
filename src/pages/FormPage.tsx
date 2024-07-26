@@ -24,6 +24,10 @@ const formDataFields = {
   numero: "",
   complemento: "",
   // Step 3 - Contato
+  contato: "",
+  celular: "",
+  telefone: "",
+  email: "",
   // Step 4 - Confirmação
   // Step 5 - Anexos
 };

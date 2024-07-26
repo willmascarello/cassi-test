@@ -7,7 +7,7 @@ import { Step2 } from "./steps/Step2";
 import { Step3 } from "./steps/Step3";
 import { Step4 } from "./steps/Step4";
 import { Step5 } from "./steps/Step5";
-import { cepMask, cnpjMask, cpfMask } from "./Mask";
+import { cepMask, cnpjMask, cpfMask, telefoneMask } from "./Mask";
 
 // import { currentStep } from "./steps/"+currentStep;
 
@@ -33,6 +33,14 @@ export function Form() {
       value = cepMask(value);
     }
 
+    if (name === "celular") {
+      value = telefoneMask(value);
+    }
+
+    if (name === "telefone") {
+      value = telefoneMask(value);
+    }
+
     setFormData({ ...formData, [name]: value });
   }
 
@@ -54,7 +62,9 @@ export function Form() {
         {formData.step === "2" && (
           <Step2 toStep={toStep} handleInputChange={handleInputChange} />
         )}
-        {formData.step === "3" && <Step3 />}
+        {formData.step === "3" && (
+          <Step3 toStep={toStep} handleInputChange={handleInputChange} />
+        )}
         {formData.step === "4" && <Step4 />}
         {formData.step === "5" && <Step5 />}
       </form>

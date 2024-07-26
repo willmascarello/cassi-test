@@ -33,10 +33,6 @@ export const Step2: React.FC<Step2Props> = (props: Step2Props) => {
     );
   }, [formData]);
 
-  useEffect(() => {
-    setFormData({ ...formData, checkboxCpf: "checkboxCpf" });
-  }, []);
-
   return (
     <FormGroup>
       <TwoFieldForm customGrid={"114px auto"}>
@@ -159,7 +155,6 @@ export const Step2: React.FC<Step2Props> = (props: Step2Props) => {
           placeholder="Informe o complemento..."
           value={formData.complemento || ""}
           onChange={(e) => props.handleInputChange(e)}
-          required
         />
       </FieldForm>
 

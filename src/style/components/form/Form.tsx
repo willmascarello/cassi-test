@@ -95,6 +95,13 @@ export const Buttons = styled.div`
     border: none;
     background-color: var(--primary);
     color: var(--text-white);
+
+    transition: 200ms ease;
+
+    &:hover {
+      background-color: var(--secundary);
+      color: var(--primary);
+    }
   }
 
   button:disabled {
@@ -105,10 +112,17 @@ export const Buttons = styled.div`
     border: 1px solid var(--primary);
     background-color: var(--background);
     color: var(--primary);
+
+    &:hover {
+      background-color: var(--primary);
+      color: var(--text-white);
+    }
   }
 
   .not-allowed {
-    cursor: not-allowed;
+    color: var(--light-grey);
+    border-color: var(--light-grey);
+    pointer-events: none;
   }
 `;
 

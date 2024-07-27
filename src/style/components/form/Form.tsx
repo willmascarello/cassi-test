@@ -1,5 +1,26 @@
 import styled from "styled-components";
 
+const buttonStandard = `
+    button {
+      min-width: 80px;
+      padding: 8px 16px 8px 16px;
+      border-radius: 4px;
+      border: none;
+      background-color: var(--primary);
+      color: var(--text-white);
+
+      &:hover {
+        background-color: var(--secundary);
+        color: var(--primary);
+      }
+    }
+
+    button:disabled {
+      color: var(--text-white);
+      background-color: var(--grey);
+    }
+  `;
+
 export const FormStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -176,24 +197,7 @@ export const Buttons = styled.div`
   justify-content: space-between;
   margin-top: auto;
 
-  button {
-    min-width: 80px;
-    padding: 8px 16px 8px 16px;
-    border-radius: 4px;
-    border: none;
-    background-color: var(--primary);
-    color: var(--text-white);
-
-    &:hover {
-      background-color: var(--secundary);
-      color: var(--primary);
-    }
-  }
-
-  button:disabled {
-    color: var(--text-white);
-    background-color: var(--grey);
-  }
+  ${buttonStandard}
 
   .prev {
     border: 1px solid var(--primary);
@@ -304,5 +308,73 @@ export const Checkboxes = styled.div`
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+  }
+`;
+
+export const Submit = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-align: -webkit-center;
+  justify-content: center;
+`;
+export const Loading = styled.div`
+  p {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 24px;
+  }
+
+  .loader {
+    width: 80px;
+    height: 80px;
+    border: 6px solid var(--primary);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+export const Submited = styled.div`
+  ${buttonStandard}
+
+  button {
+    margin-top: 24px;
+  }
+
+  .title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 24px;
+  }
+
+  .message {
+    max-width: 218px;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
+
+  a {
+    text-decoration: underline;
   }
 `;

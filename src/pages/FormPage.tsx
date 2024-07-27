@@ -14,7 +14,6 @@ const formDataFields = {
   cnpj: "",
   prestador: "",
   especialidades: "",
-
   // Step 2 - Endereço
   cep: "",
   endereco: "",
@@ -33,6 +32,8 @@ const formDataFields = {
   // Step 5 - Anexos
   arquivo: [],
   observacoes: "",
+  // Feedback
+  protocolo: 231321542132,
 };
 
 type FormContextType = {
@@ -49,7 +50,6 @@ export const FormContext = createContext<FormContextType>(iFormContextState);
 
 export function FormPage() {
   const [formData, setFormData] = useState<any>({});
-  // const [step, setStep] = useState<Number>(1);
 
   return (
     <FormContext.Provider value={{ formData, setFormData }}>

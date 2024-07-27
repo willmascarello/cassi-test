@@ -43,7 +43,7 @@ export const Step5: React.FC<Step5Props> = (props: Step5Props) => {
   // TODO: rever validação
   useEffect(() => {
     console.log("arquivo: ", formData);
-    setStep5NextButton(!!files.length);
+    setStep5NextButton(true /* !!files.length */);
   }, [formData]);
 
   return (

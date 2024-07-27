@@ -138,6 +138,11 @@ export const TitleField = styled.div`
     margin-bottom: 8px;
   }
 
+  button > img,
+  button > span {
+    vertical-align: middle;
+  }
+
   button {
     border: none;
     background-color: transparent;

@@ -13,6 +13,7 @@ import { Step3 } from "./steps/Step3";
 import { Step4 } from "./steps/Step4";
 import { Step5 } from "./steps/Step5";
 import { cepMask, cnpjMask, cpfMask, telefoneMask } from "./Mask";
+import { AsideCommonQuestions } from "./AsideCommonQuestions";
 
 export function Form() {
   const submitedSuccess = true; // mude para false para ver a mensagem de falha
@@ -54,21 +55,14 @@ export function Form() {
 
   function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
     let { name, value } = event.target;
-
-    console.log("event:", event);
-    console.log("file:", event.target.files);
-    // console.log("event:", event.target.file);
-    // console.log("file:", !event.target.files[0] ?? event.target.files[0]);
-
     setFormData({ ...formData, [name]: value });
   }
 
   // Valores iniciais
-  // FIXME: voltar para -> step: "1"
   useEffect(() => {
     setFormData({
       ...formData,
-      step: "5",
+      step: "1",
       checkboxCpf: "checkboxCpf",
       protocolo: "231321542132",
     });
@@ -157,5 +151,10 @@ export function Form() {
     </form>
   );
 
-  return <FormStyle>{feedback ? submit : form}</FormStyle>;
+  return (
+    <FormStyle>
+      {feedback ? submit : form}
+      <AsideCommonQuestions />
+    </FormStyle>
+  );
 }

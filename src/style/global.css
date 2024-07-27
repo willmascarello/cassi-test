@@ -7,7 +7,8 @@
   --grey: #969696; /* TEXTO FORMULÁRIO */
   --dark-grey: #747876; /* BREADCRUMB */
   --text: #2D2D2D; /* TEXTOS */ 
-  --text-white: #FFF; /* TEXTOS CLAROS*/ 
+  --text-white: #FFF; /* TEXTOS CLAROS */ 
+  --questions: #F9F9F9; /* QUESTÕES */ 
 }
 
 /* Estilos importantes para todas as páginas */
